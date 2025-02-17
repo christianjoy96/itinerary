@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: 'Playfair Display', serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #f8f4f0 0%, #e8d9d0 50%, #f3e6db 100%);
+            background-size: 400% 400%;
+            animation: gradientAnimation 15s ease infinite;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Add floating particles */
+        body::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 50% 50%, rgba(166, 139, 109, 0.1) 0%, transparent 10%),
+                radial-gradient(circle at 80% 20%, rgba(139, 115, 85, 0.1) 0%, transparent 15%);
+            animation: sparkle 4s ease-in-out infinite;
+        }
+        
+        .container {
+            text-align: center;
+            padding: 60px;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            box-shadow: 0 15px 40px rgba(139, 115, 85, 0.15),
+                        0 0 100px rgba(139, 115, 85, 0.1);
+            position: relative;
+            max-width: 800px;
+            width: 90%;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .greeting {
+            font-size: 4rem;
+            color: #8b7355;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 2px rgba(139, 115, 85, 0.1);
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+        
+        .date {
+            font-size: 2rem;
+            color: #a68b6d;
+            margin-bottom: 40px;
+            font-style: italic;
+            letter-spacing: 1px;
+        }
+        
+        .invitation-link {
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+            /* Add will-change to optimize performance */
+            will-change: transform;
+            /* Add hardware acceleration */
+            transform: translateZ(0);
+            -webkit-transform: translateZ(0);
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+        }
+        
+        .invitation {
+            font-size: 1.6rem;
+            color: #fff;
+            background: linear-gradient(45deg, #a68b6d, #8b7355);
+            padding: 20px 50px;
+            border-radius: 60px;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(139, 115, 85, 0.3);
+            box-shadow: 0 8px 25px rgba(139, 115, 85, 0.2);
+            letter-spacing: 2px;
+        }
+        
+        .invitation:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 12px 30px rgba(139, 115, 85, 0.3),
+                        0 0 60px rgba(166, 139, 109, 0.2);
+            background: linear-gradient(45deg, #8b7355, #a68b6d);
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px) scale(0.98); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50% }
+            50% { background-position: 100% 50% }
+            100% { background-position: 0% 50% }
+        }
+
+        @keyframes sparkle {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.2); opacity: 0.8; }
+        }
+        
+        .container > * {
+            animation: fadeIn 1.5s ease-out forwards;
+        }
+
+        .container::before, .container::after {
+            content: '✦';
+            position: absolute;
+            font-size: 2.5rem;
+            color: #a68b6d;
+            animation: float 4s ease-in-out infinite;
+            text-shadow: 0 0 15px rgba(166, 139, 109, 0.3);
+        }
+
+        .container::before {
+            top: -40px;
+            left: 30%;
+        }
+
+        .container::after {
+            bottom: -40px;
+            right: 30%;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-12px) rotate(5deg); }
+            100% { transform: translateY(0) rotate(0deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="greeting" style="font-family: 'Playfair Display', serif; font-size: 3rem; margin-bottom: 2rem; background: linear-gradient(45deg, #8b7355, #a68b6d); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+            Hi, Name !
+        </div>
+        <div class="message" style="font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: #8b7355; margin-bottom: 3rem; font-style: italic; line-height: 1.6;">
+            Get ready for our first meeting!
+        </div>
+        <div class="date" style="font-family: 'Montserrat', sans-serif; color: #8b7355; letter-spacing: 3px; margin-bottom: 1rem; font-weight: 300;">
+            Save The Date
+        </div>
+        <div class="date-highlight" style="font-family: 'Playfair Display', serif; font-size: 2rem; color: #a68b6d; margin-bottom: 3.5rem; border-top: 2px double #8b7355; border-bottom: 2px double #8b7355; padding: 1.5rem 0; line-height: 1.8;">
+            Saturday, 22nd February 2025
+        </div>
+        <a href="itinerary.html" class="invitation-link">
+            <div class="invitation" style="font-family: 'Cormorant Garamond', serif; letter-spacing: 2px; background: linear-gradient(45deg, #8b7355, #a68b6d); border: 1px solid rgba(139, 115, 85, 0.3);">
+                View Itinerary
+            </div>
+        </a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #f8f4f0 0%, #e8d9d0 50%, #f3e6db 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .timeline-container {
+            max-width: 800px;
+            width: 90%;
+            margin: 40px auto;
+            padding: 30px;
+            position: relative;
+        }
+
+        .timeline-item {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 40px 0;
+            box-shadow: 0 3px 20px rgba(139, 115, 85, 0.15);
+            transform: translateX(-50px);
+            opacity: 0;
+            animation: slideIn 0.6s ease forwards;
+            position: relative;
+            border: 1px solid rgba(166, 139, 109, 0.2);
+            backdrop-filter: blur(5px);
+        }
+
+        .timeline-item::before {
+            content: '✦';
+            position: absolute;
+            left: -30px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #a68b6d;
+            font-size: 1.2rem;
+            animation: sparkle 2s infinite;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: -50px;
+            top: 50%;
+            width: 20px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #a68b6d);
+        }
+
+        .time {
+            font-size: 1.1rem;
+            color: #8b7355;
+            font-weight: 600;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+
+        .activity {
+            font-size: 1.3rem;
+            color: #4a4a4a;
+            margin-bottom: 12px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .details {
+            font-size: 0.95rem;
+            color: #666;
+            font-style: italic;
+            line-height: 1.6;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            animation: fadeIn 1.2s ease;
+            position: relative;
+        }
+
+        .title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: #8b7355;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(139, 115, 85, 0.1);
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: #a68b6d;
+            letter-spacing: 2px;
+        }
+
+        @keyframes slideIn {
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 0.5; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.3); }
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(45deg, #a68b6d, #8b7355);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            margin-top: 40px;
+            transition: all 0.4s ease;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .back-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(139, 115, 85, 0.3);
+        }
+
+        .back-button::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.2), transparent);
+            transform: translateX(-100%);
+            transition: 0.6s;
+        }
+
+        .back-button:hover::after {
+            transform: translateX(100%);
+        }
+    </style>
+</head>
+<body>
+    <div class="timeline-container">
+        <div class="header">
+            <div class="title">Our Itinerary</div>
+            <div class="subtitle">Saturday, 22nd February 2025</div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="time">11:30 AM</div>
+            <div class="activity">🥩 Maboo at Paskal Hypersquare</div>
+            <div class="details">Kick off our day with a delightful lunch at Maboo, where the ambiance is as inviting as the food. Savor the exquisite flavors and enjoy the cozy atmosphere as we gather for our first meet.</div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="time">1:00 PM</div>
+            <div class="activity">🎯 Blitz Tactical @ Istana Plaza</div>
+            <div class="details">Time for some tactical laser tag action! Get ready for an adrenaline-pumping team battle experience.</div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="time">2:00 PM</div>
+            <div class="activity">🏎️ Drift Inc @ Istana Plaza</div>
+            <div class="details">Experience the thrill of racing with state-of-the-art racing simulators. Feel like a professional racer!</div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="time">3:30 PM</div>
+            <div class="activity">🧁 Drunk Baker</div>
+            <div class="details">Time to recharge with some delicious desserts and specialty coffee in this cozy artisanal bakery.</div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="time">7:00 PM</div>
+            <div class="activity">🍜 Hakata Ikkousha</div>
+            <div class="details">End the day with authentic Japanese ramen. Known for their rich tonkotsu broth and perfectly chewy noodles.</div>
+        </div>
+
+        <div style="text-align: center;">
+            <a href="index.html" class="back-button">Back to Invitation</a>
+        </div>
+    </div>
+</body>
+</html>
